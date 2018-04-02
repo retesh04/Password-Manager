@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="base.defination" template="/WEB-INF/pages/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="" />
+	</definition>
+
+	<definition name="login" extends="base.defination">
+		<put-attribute name="title" value="login" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="body" value="/WEB-INF/pages/login.jsp" />
+	</definition>
+
+	<definition name="registration" extends="base.defination">
+		<put-attribute name="title" value="registration" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="body" value="/WEB-INF/pages/registration.jsp" />
+	</definition>
+
+	<definition name="success" extends="base.defination">
+		<put-attribute name="title" value="success page" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="body" value="/WEB-INF/pages/success.jsp" />
+	</definition>
+
+	<definition name="success-login" extends="base.defination">
+		<put-attribute name="title" value="success login page" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/success-login.jsp" />
+		<put-attribute name="footer" value="" />
+	</definition>
+	<definition name="bank" extends="base.defination">
+		<put-attribute name="title" value="bank" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/bank.jsp" />
+	</definition>
+	<definition name="generate" extends="base.defination">
+		<put-attribute name="title" value="generate" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="/WEB-INF/pages/generate.jsp" />
+		<put-attribute name="body" value="" />
+	</definition>
+
+	<definition name="final-success" extends="base.defination">
+		<put-attribute name="title" value="success login page" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/final-success.jsp" />
+		<put-attribute name="footer" value="" />
+	</definition>
+
+	<definition name="bankview" extends="base.defination">
+		<put-attribute name="title" value="success login page" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/bankview.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/pages/footer.jsp" />
+	</definition>
+
+
+</tiles-definitions>
