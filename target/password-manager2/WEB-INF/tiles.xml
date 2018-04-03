@@ -45,6 +45,19 @@
 		<put-attribute name="menu" value="/WEB-INF/pages/menu.jsp" />
 		<put-attribute name="body" value="/WEB-INF/pages/bank.jsp" />
 	</definition>
+
+	<definition name="social" extends="base.defination">
+		<put-attribute name="title" value="bank" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/social.jsp" />
+	</definition>
+	<definition name="ecom" extends="base.defination">
+		<put-attribute name="title" value="bank" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/ecom.jsp" />
+	</definition>
 	<definition name="generate" extends="base.defination">
 		<put-attribute name="title" value="generate" />
 		<put-attribute name="header" value="" />
@@ -68,5 +81,17 @@
 		<put-attribute name="footer" value="/WEB-INF/pages/footer.jsp" />
 	</definition>
 
-
+	<definition name="edit1" extends="base.defination">
+		<put-attribute name="title" value="bank" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/edit.jsp" />
+	</definition>
+	
+	<definition name="edit" extends="base.defination">
+		<put-attribute name="title" value="bank" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/edit.jsp" />
+	</definition>
 </tiles-definitions>

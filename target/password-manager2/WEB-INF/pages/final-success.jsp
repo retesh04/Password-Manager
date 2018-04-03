@@ -15,6 +15,9 @@
 <body>
 <div style="text-align: center">
 <h4>${banksucess}</h4>
+<h4>${ecomsuccess}</h4>
+<h4>${edit}</h4>
+<h4>${delete}</h4>
 <br>
 <br>
 </body>

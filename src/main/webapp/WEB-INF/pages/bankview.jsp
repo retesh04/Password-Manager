@@ -11,12 +11,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body background="key-1013662_960_720.jpg">
 
 	<div class="container">
 		<table class="table table-hover">
 			<thead>
 				<tr>
+					<th>id</th>
 					<th>userid</th>
 					<th>Password</th>
 					<th>AccountType</th>
@@ -24,18 +25,20 @@
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach var="list" items="${list}">
-				<tr>
-					<td>${list.userid}</td>
-					<td>${list.password}</td>
-					<td>${list.accountType}</td>
-					<td>${list.nameType}</td>
-					<td>
-					 <a href="${pageContext.request.contextPath}/team/edit/${team.id}"> Edit</a><br>
-					 <a href="${pageContext.request.contextPath}/team/delete/${team.id}"> Delete</a><br>
-					</td>
-							</tr>
-				
+				<c:forEach var="list" items="${list}">
+					<tr>
+						<td>${list.id}</td>
+						<td>${list.userid}</td>
+						<td>${list.password}</td>
+						<td>${list.accountType}</td>
+						<td>${list.nameType}</td>
+						<td><a
+							href="${pageContext.request.contextPath}/edit/${list.id}">
+								Edit</a><br> <a
+							href="${pageContext.request.contextPath}/delete/${list.id}">
+								Delete</a><br></td>
+					</tr>
+
 				</c:forEach>
 			</tbody>
 		</table>

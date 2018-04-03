@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bellinfo.password.model.Ecom;
+import com.bellinfo.password.model.Edit;
 import com.bellinfo.password.model.GeneratePassword;
 import com.bellinfo.password.model.Login;
 import com.bellinfo.password.model.Registration;
@@ -61,11 +62,11 @@ public class PasswordController {
 
 	}
 
-	@RequestMapping(value = "/ecomm", method = RequestMethod.GET)
+	@RequestMapping(value = "/ecom", method = RequestMethod.GET)
 	public String storeEcom(Model model) {
 		Ecom ec = new Ecom();
 		model.addAttribute("ecom", ec);
-		return "Ecom";
+		return "ecom";
 
 	}
 
@@ -78,8 +79,8 @@ public class PasswordController {
 	}
 
 	@RequestMapping(value = "/generate", method = RequestMethod.GET)
-	public String bankView(Model model, @ModelAttribute SessionListener listen,
-			HttpServletRequest request, HttpServletResponse response) {
+	public String bankView(Model model, @ModelAttribute SessionListener listen, HttpServletRequest request,
+			HttpServletResponse response) {
 		listen.session = request.getSession(true);
 		HttpSessionEvent event = new HttpSessionEvent(listen.session);
 		String user = (String) listen.session.getAttribute("attr");
@@ -91,10 +92,9 @@ public class PasswordController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 model.addAttribute("list", list);
-		 return "bankview";
+		model.addAttribute("list", list);
+		return "bankview";
 	}
-		
 
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public String postStudentData(Model model, @Valid @ModelAttribute Registration reg, BindingResult bindingResult) {
@@ -165,19 +165,74 @@ public class PasswordController {
 			e.printStackTrace();
 		}
 		String text = "Your Account details have been Stored";
-		model.addAttribute("banksucess", text);
+		model.addAttribute("banksuccess", text);
 		return "final-success";
 	}
 
+	@RequestMapping(value = "/social", method = RequestMethod.POST)
+	public String getSocialDetails(Model model, @Valid @ModelAttribute SocialMedia sm,
+			@ModelAttribute SessionListener listen, HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-	
-	
-	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
-	public String deleteTeam(@PathVariable Integer id, Model model) {
-		service.deleteTeam(id);
-		model.addAttribute("message","Team with "+id +"successfully deleted.");
-		return "homePage";
+		listen.session = request.getSession(true);
+		HttpSessionEvent event = new HttpSessionEvent(listen.session);
+		String user = (String) listen.session.getAttribute("attr");
+		try {
+			service.storeSocial(sm, user);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String text = "Your Social Account details have been Stored";
+		model.addAttribute("socialsuccess", text);
+		return "final-success";
 	}
 
-	
+	@RequestMapping(value = "/ecom", method = RequestMethod.POST)
+	public String getEcomDetails(Model model, @Valid @ModelAttribute Ecom em, @ModelAttribute SessionListener listen,
+			HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		listen.session = request.getSession(true);
+		HttpSessionEvent event = new HttpSessionEvent(listen.session);
+		String user = (String) listen.session.getAttribute("attr");
+		try {
+			service.storeEcom(em, user);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String text = "Your Ecom Account details have been Stored";
+		model.addAttribute("ecomsuccess", text);
+		return "final-success";
+	}
+
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+	public String updateTeam(@PathVariable Integer id, Model model) {
+		Edit edit = service.getRec(id);
+		System.out.println(edit);
+		System.out.println(edit.getId());
+		model.addAttribute("edit", edit);
+		return "edit";
+	}
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST)
+	public String editDetails(Model model, @Valid @ModelAttribute Edit edit, @ModelAttribute SessionListener listen,
+			HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		listen.session = request.getSession(true);
+		HttpSessionEvent event = new HttpSessionEvent(listen.session);
+		String user = (String) listen.session.getAttribute("attr");
+		service.update(edit);
+		String text = "Your Details Have been updates";
+		model.addAttribute("update", text);
+		return "final-success";
+	}
+
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public String delete(@PathVariable Integer id, Model model) {
+		String str = service.delete(id);
+		model.addAttribute("delete", str);
+		return "final-success";
+	}
+
 }

@@ -6,13 +6,15 @@ public class GeneratePassword {
 	String password;
 	String accountType;
 	String nameType;
+	int id;
 
-	public GeneratePassword(String userid, String password, String accountType, String nameType) {
+	public GeneratePassword(String userid, String password, String accountType, String nameType, int id) {
 		super();
 		this.userid = userid;
 		this.password = password;
 		this.accountType = accountType;
 		this.nameType = nameType;
+		this.id = id;
 	}
 
 	public GeneratePassword() {
@@ -50,8 +52,16 @@ public class GeneratePassword {
 		this.nameType = nameType;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String toString() {
-		return "[" + "Passwords: " + "Userid is: " + userid + "The password is: " + password
-				+ " The account type is: " + accountType + "The name type is:" + nameType + "]";
+		return "[" + "Passwords: " + "Userid is: " + userid + "The password is: " + password + " The account type is: "
+				+ accountType + "The name type is:" + nameType + "]";
 	}
 }

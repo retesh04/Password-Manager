@@ -1,12 +1,15 @@
 com\bellinfo\password\repository\Repository.class
+com\bellinfo\password\model\Edit.class
 com\bellinfo\password\config\AppInitializer.class
 com\bellinfo\password\model\SocialMedia.class
 com\bellinfo\password\repository\Repository$1.class
 com\bellinfo\password\service\Service.class
 com\bellinfo\password\model\Login.class
+com\bellinfo\password\repository\Repository$2.class
 com\bellinfo\password\model\GeneratePassword.class
 com\bellinfo\password\model\StoreBankDetails.class
 com\bellinfo\password\controller\PasswordController.class
+com\bellinfo\password\model\Delete.class
 com\bellinfo\password\config\AppConfig.class
 com\bellinfo\password\model\Ecom.class
 com\bellinfo\password\model\Registration.class

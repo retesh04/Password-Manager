@@ -115,7 +115,7 @@
    <script src="script.js"></script>
    <title>CSS MenuMaker</title>
 </head>
-<body>
+<body >
 <br>
 <div id='cssmenu'>
 <ul>
